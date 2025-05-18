@@ -14,11 +14,32 @@ class MusicWidget extends StatelessWidget {
     await player.play(AssetSource('music-$musicNumber.mp3'));
   }
 
+  Widget myButton(int musicNumber, Color buttonColor, String buttonText) {
+   return Expanded(
+      child: ElevatedButton.icon(
+        onPressed: (){
+          playSound(musicNumber);
+        },
+        icon: const Icon(Icons.music_note),
+        label:  Text(buttonText),
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          textStyle: const TextStyle(
+              fontSize: 18),
+          backgroundColor: buttonColor,
+          iconColor: Colors.purple,
+          foregroundColor: Colors.black87,
+        ),
+      ),
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.purple[300],
+        backgroundColor: Colors.purple[100],
         appBar: AppBar(
           title: const Text("Naghamat App"),
           backgroundColor: Colors.purple,
@@ -26,101 +47,17 @@ class MusicWidget extends StatelessWidget {
         ),
         body: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.stretch,
             spacing: 10.0,
-            children:[
-              ElevatedButton.icon(
-                onPressed: (){
-                  playSound(1);
-                  },
-          icon: const Icon(Icons.music_note),
-          label: const Text("NOTE 1 🎵"),
-          style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-          textStyle: const TextStyle(fontSize: 18),
-          backgroundColor: Colors.purple,
-          foregroundColor: Colors.white,
-          ),
-          ),
-          ElevatedButton.icon(
-          onPressed: (){
-                playSound(2);
-              },
-          icon: const Icon(Icons.music_note),
-          label: const Text("NOTE 2 🎵"),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-                  textStyle: const TextStyle(fontSize: 18),
-                  backgroundColor: Colors.purple,
-                  foregroundColor: Colors.white,
-                ),
-              ),
-              ElevatedButton.icon(
-                  onPressed: (){
-                    playSound(3);
-                  } ,
-                  icon: const Icon(Icons.music_note),
-                label: const Text("NOTE 3 🎵"),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-                  textStyle: const TextStyle(fontSize: 18),
-                  backgroundColor: Colors.purple,
-                  foregroundColor: Colors.white,
-                ),
-              ),
-              ElevatedButton.icon(
-                onPressed: (){
-                  playSound(4);
-                },
-                icon: const Icon(Icons.music_note),
-                label: const Text("NOTE 4 🎵"),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-                  textStyle: const TextStyle(fontSize: 18),
-                  backgroundColor: Colors.purple,
-                  foregroundColor: Colors.white,
-                ),
-              ),
-              ElevatedButton.icon(
-                onPressed: (){
-                  playSound(5);
-                },
-                icon: const Icon(Icons.music_note),
-                label: const Text("NOTE 5 🎵"),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-                  textStyle: const TextStyle(fontSize: 18),
-                  backgroundColor: Colors.purple,
-                  foregroundColor: Colors.white,
-                ),
-              ),
-              ElevatedButton.icon(
-                onPressed: (){
-                  playSound(6);
-                },
-                icon: const Icon(Icons.music_note),
-                label: const Text("NOTE 6 🎵"),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-                  textStyle: const TextStyle(fontSize: 18),
-                  backgroundColor: Colors.purple,
-                  foregroundColor: Colors.white,
-                ),
-              ),
-              ElevatedButton.icon(
-                onPressed: (){
-                  playSound(7);
-                },
-                icon: const Icon(Icons.music_note),
-                label: const Text("NOTE 7 🎵"),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-                  textStyle: const TextStyle(fontSize: 18),
-                  backgroundColor: Colors.purple,
-                  foregroundColor: Colors.white,
-                ),
-              ),
-            ]
+            children: [
+              myButton(1, Colors.red, "Note 1"),
+              myButton(2, Colors.yellow, "Note 2"),
+              myButton(3, Colors.blue, "Note 3"),
+              myButton(4, Colors.orange, "Note 4"),
+              myButton(5, Colors.green, "Note 5"),
+              myButton(6, Colors.pink, "Note 6"),
+              myButton(7, Colors.indigo, "Note 7"),
+            ],
           ),
         ),
       ),
